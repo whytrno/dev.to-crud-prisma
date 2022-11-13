@@ -1,9 +1,10 @@
 import express from 'express'
+import { create, deleteUser, getAllData, update } from '../controllers/userController.js'
 let router = express.Router()
 
-/* GET home page. */
-router.get('/', function (req, res, next) {
-  res.json('index', { title: 'Express' });
-});
+router.get('/', getAllData)
+router.post('/', create)
+router.put('/:id', update)
+router.delete('/:id', deleteUser)
 
 export default router
